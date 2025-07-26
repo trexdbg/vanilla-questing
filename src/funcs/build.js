@@ -99,7 +99,7 @@ function random() {
 }
 
 // SPECIFIC ROUTE
-function specific({ race, block }) {
+function specific({ race, block, url }) {
 
     // DEFAULT TO RANDOM ROUTE
     let response = {};
@@ -116,7 +116,8 @@ function specific({ race, block }) {
             // UPDATE RESPONSE WITH REQUESTED ROUTE
             response = {
                 data: build,
-                current: parseInt(block)
+                current: parseInt(block),
+                url: url
             }
 
         // OTHERWISE
@@ -125,7 +126,8 @@ function specific({ race, block }) {
             // SET CURRENT TO ZERO
             response = {
                 data: build,
-                current: 0
+                current: 0,
+                url: url
             }
 
             // SEND ERROR

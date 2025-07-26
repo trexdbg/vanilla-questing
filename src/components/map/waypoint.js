@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import blank from '../../interface/images/waypoints/space.png';
+import yellow from '../../interface/images/waypoints/yellow.png';
+import purple from '../../interface/images/waypoints/purple.png';
+import red from '../../interface/images/waypoints/red.png';
+import green from '../../interface/images/waypoints/green.png';
+import blue from '../../interface/images/waypoints/blue.png';
 
 export default ({ waypoint, block }) => {
+
+    // WAYPOINT MAPPING
+    const mapping = {
+        quest: yellow,
+        travel: purple,
+        objective: red,
+        flightpath: green,
+        hub: blue
+    }
 
     // LOCAL STATE
     const [local, set_local] = useState({
         alignment: null,
         number: null,
         position: {},
+        source: null
     })
 
     // GENERATE APPROPARIATE CONTENT
@@ -20,26 +34,20 @@ export default ({ waypoint, block }) => {
             position: {
                 left: waypoint.coords.x + '%',
                 top: waypoint.coords.y + '%'
-            }
+            },
+            source: mapping[waypoint.type]
         })
 
     }, [waypoint, block])
 
     return (
-        <foreignObject>
-            <div className={ 'waypoint' } style={ local.position }>
+        <foreignObject x={ local.position.left } y={ local.position.top } width="30" height="30">
+            <div className={ 'waypoint' }>
                 <img
-                    src={ blank }
-                    id={ waypoint.type }
+                    src={ local.source }
                     alt={ '' }
                 />
-                <span id={ local.alignment }>
-                    <img
-                        src={ blank }
-                        id={ 'wp' + local.number }
-                        alt={ '' }
-                    />
-                </span>
+                <span className="waypoint-number">{ local.number }</span>
             </div>
         </foreignObject>
     )

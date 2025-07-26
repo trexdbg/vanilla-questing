@@ -40,28 +40,15 @@
    }
 
    .waypoint {
-      position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 100%;
+      height: 100%;
 
-      span {
-         background: rgba(0, 0, 0, 0.76);
-         position: absolute;
-         pointer-events: none;
-         padding: 1px;
-         border-radius: 25%;
-         opacity: 1;
-
-         #wp1 { background: url('../images/numbers/1.png'); }
-         #wp2 { background: url('../images/numbers/2.png'); }
-         #wp3 { background: url('../images/numbers/3.png'); }
-         #wp4 { background: url('../images/numbers/4.png'); }
-         #wp5 { background: url('../images/numbers/5.png'); }
-         #wp6 { background: url('../images/numbers/6.png'); }
-         #wp7 { background: url('../images/numbers/7.png'); }
-         #wp8 { background: url('../images/numbers/8.png'); }
-         #wp9 { background: url('../images/numbers/9.png'); }
-      }
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+      text-align: center;
+      line-height: 10px;
 
       // NUMBER ALIGNMENT
       #left { position: absolute; left: -20; top: -6; }
@@ -69,21 +56,21 @@
       #top { position: absolute; left: -5; top: -21; }
       #bottom { position: absolute; left: -5; top: 10; }
    
-      #quest,
-      #travel,
-      #objective,
-      #flightpath,
-      #hub {
-         position: relative;
-         left: -5px;
-         top: -5px;
+      img {
+         width: 100%;
+         height: 100%;
       }
-   
-      #quest  { background: url('../images/waypoints/yellow.png'); }
-      #travel { background: url('../images/waypoints/purple.png'); }
-      #objective { background: url('../images/waypoints/red.png'); }
-      #flightpath { background: url('../images/waypoints/green.png'); }
-      #hub { background: url('../images/waypoints/blue.png'); }
+      .waypoint-number {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 1;
+      }
    }
 }
 

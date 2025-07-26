@@ -13,6 +13,7 @@ export default () => {
     // LOCAL STATE
     const [local, set_local] = useState({
         level: '',
+        name: '',
         button: 'bad'
     })
 
@@ -38,7 +39,8 @@ export default () => {
             // LOAD BUILD
             const build = specific({
                 race: state.request,
-                block: 0
+                block: 0,
+                url: state.url
             })
 
             // FIND THE REQUESTED LEVEL
@@ -69,7 +71,7 @@ export default () => {
             })
 
             // UPDATE URL
-            update_url(state, build.data.race, build.current)
+            update_url(build, build.data.race, build.current)
 
             // HIDE PROMPT
             dispatch({ type: 'hide-prompt' })
